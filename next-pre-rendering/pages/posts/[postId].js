@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 function Post({ post }) {
-  const router = useRouter();
+  // const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  // if (router.isFallback) {//it is require only when the fallback is true
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <>
@@ -53,6 +53,6 @@ export async function getStaticPaths() {
       { params: { postId: "2" } }, //postId paramter value is a string
       { params: { postId: "3" } }, //we are only passing three posts so we are generating 3 paths
     ],
-    fallback: true,
+    fallback: "blocking",
   };
 }
