@@ -11,5 +11,20 @@ export default function handler(req, res) {
     };
     comments.push(newComment);
     res.status(201).json(newComment);
+  } else if (req.method === "PATCH") {
+    const commentVal = req.body.updateComment;
+    const updateComment = comments.find((comment) => {
+      if (comment.id === parseInt(commentVal.id)) {
+        comment.text = commentVal.text;
+      }
+    });
+    res.status(204).json(updateComment);
   }
+
+  // if (req.method === "PATCH") {
+  //   const { id, comment } = req.body;
+  //   const index = comments.findIndex((comment) => comment.id === id);
+  //   comments[index].text = comment;
+  //   res.status(200).json(comments);
+  // }
 }
