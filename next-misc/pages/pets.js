@@ -1,7 +1,6 @@
-// import Image from "next/image";
+import Image from "next/image";
 import img from "public/Image1.jpg";
 function PetsPage() {
-  /*
   const shimmer = (w, h) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -20,17 +19,17 @@ function PetsPage() {
     typeof window === "undefined"
       ? Buffer.from(str).toString("base64")
       : window.btoa(str);
-*/
+
   return (
     <div>
-      {/* <Image
+      <Image
         src={img}
         placeholder="blur"
         blurDataURL={`${img};base64,${toBase64(shimmer(700, 475))}`}
         alt="pet"
         width="280"
         height="420"
-      /> */}
+      />
 
       {["Image1", "Image2", "Image3", "Image4", "Image5"].map((path) => {
         return (
