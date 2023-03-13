@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut } from "next-auth/react";
 
 function Navbar() {
   // const [session, loading] = useSession();
@@ -28,16 +28,12 @@ function Navbar() {
 
         {/* {!loading && !session && ( */}
         <li>
-          <Link
-            href="#"
-            legacyBehavior
-            // href="/api/auth/signin"
-          >
+          <Link legacyBehavior href="/api/auth/signin">
             <a
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   signIn("github");
-            // }}
+              onClick={(e) => {
+                e.preventDefault();
+                signIn("github"); //here we passed github. So that we can automatically signin without navigating to signin ui everytime.
+              }}
             >
               Sign In
             </a>
@@ -46,16 +42,12 @@ function Navbar() {
         {/* )} */}
         {/* {session && ( */}
         <li>
-          <Link
-            href="#"
-            legacyBehavior
-            // href="/api/auth/signout"
-          >
+          <Link legacyBehavior href="/api/auth/signout">
             <a
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   signOut();
-            // }}
+              onClick={(e) => {
+                e.preventDefault();
+                signOut();
+              }}
             >
               Sign Out
             </a>
